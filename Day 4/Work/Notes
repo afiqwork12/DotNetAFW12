@@ -1,0 +1,65 @@
+CRUD -> Create, Read, Update, Delete
+
+Our Project: Pizza Ordering App in Console
+
+Practice Project: Clinic Management System
+
+use the term .NET not .net
+C#
+
+Visual Studio - IDE
+
+.NET Core - Platform Independant
+
+.NET - not Platform Independant
+
+Visual Studio Code
+
+Interoperability -> Inter Operational Ability
+First selling point of .NET
+Why? other app can work in .NET
+
+.NET is a technology
+C# is a coding language
+
+Types -> int, float, char, double (primitive types) (like base types) (cannot be broken down)
+C -> GCC/Borland -> integer is 2 bytes
+
+CTS
+CLT
+TypeSafety
+
+
+https://docs.microsoft.com/en-us/dotnet/fundamentals/
+
+2,3,3.5,4,4.5
+
+https://docs.microsoft.com/en-us/dotnet/csharp/
+
+C# -> OOPS
+
+Language
+	Keywords	-> Words
+	Syntax		-> Grammar
+Statements
+	Sequence	-> One after another
+	Selection	-> Choice of statements
+	Iteration 	-> Repeat execution
+OOPS
+	Class
+	Object
+	Inheritance
+	Polymorphism
+	Encapsulation
+	Abstraction
+	
+Why we need Object Orientation?
+cause its good
+
+Everything should be inside a class or a structure
+Naming
+Class Name -> CapitalFirstLetter ->Noun
+Methods -> CapitalFirstLetter -> Verbs
+Interface -> IThenFirstLetterCapital
+Variables
+	
