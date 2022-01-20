@@ -128,7 +128,16 @@ patient can book appt
 patient can read peronal appt details
 
 
-
+Everything should be inside a class or a structure
+Naming
+Class Name -> CapitalFirstLetter -> Nouns
+Methods -> CapitalFirstLetter -> Verbs
+Interface - > IThenFirstLetterCapital
+Variables
+   private -> camelCase
+   ReadOnly -> _camelCase
+   Constants -> PASCAL
+   Public - > CapitalFirstLetter
 
 
 
