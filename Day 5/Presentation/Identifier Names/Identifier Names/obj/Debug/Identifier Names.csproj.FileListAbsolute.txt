@@ -1,0 +1,7 @@
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Presentation\Identifier Names\Identifier Names\bin\Debug\Identifier Names.exe.config
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Presentation\Identifier Names\Identifier Names\bin\Debug\Identifier Names.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Presentation\Identifier Names\Identifier Names\bin\Debug\Identifier Names.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Presentation\Identifier Names\Identifier Names\obj\Debug\Identifier Names.csprojAssemblyReference.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Presentation\Identifier Names\Identifier Names\obj\Debug\Identifier Names.csproj.CoreCompileInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Presentation\Identifier Names\Identifier Names\obj\Debug\Identifier Names.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Presentation\Identifier Names\Identifier Names\obj\Debug\Identifier Names.pdb

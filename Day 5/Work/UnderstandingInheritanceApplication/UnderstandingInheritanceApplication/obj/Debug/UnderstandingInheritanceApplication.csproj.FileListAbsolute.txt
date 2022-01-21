@@ -1,0 +1,7 @@
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\UnderstandingInheritanceApplication\UnderstandingInheritanceApplication\bin\Debug\UnderstandingInheritanceApplication.exe.config
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\UnderstandingInheritanceApplication\UnderstandingInheritanceApplication\bin\Debug\UnderstandingInheritanceApplication.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\UnderstandingInheritanceApplication\UnderstandingInheritanceApplication\bin\Debug\UnderstandingInheritanceApplication.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\UnderstandingInheritanceApplication\UnderstandingInheritanceApplication\obj\Debug\UnderstandingInheritanceApplication.csproj.CoreCompileInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\UnderstandingInheritanceApplication\UnderstandingInheritanceApplication\obj\Debug\UnderstandingInheritanceApplication.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\UnderstandingInheritanceApplication\UnderstandingInheritanceApplication\obj\Debug\UnderstandingInheritanceApplication.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\UnderstandingInheritanceApplication\UnderstandingInheritanceApplication\obj\Debug\UnderstandingInheritanceApplication.csprojAssemblyReference.cache

@@ -1,0 +1,17 @@
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaFEConsoleApp.exe.config
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaFEConsoleApp.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaFEConsoleApp.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.csprojAssemblyReference.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 5\Work\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaFEConsoleApp.exe.config
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaFEConsoleApp.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaFEConsoleApp.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaModelsLibrary.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaModelsLibrary.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.csprojAssemblyReference.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.csproj.CopyComplete
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.pdb
