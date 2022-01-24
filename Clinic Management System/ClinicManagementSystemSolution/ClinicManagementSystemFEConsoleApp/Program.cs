@@ -10,9 +10,10 @@ namespace ClinicManagementSystemFEConsoleApp
     {
         static void Main(string[] args)
         {
-            ManageUsers manageUsers = new ManageUsers();
-            manageUsers.RegisterUsers();
-            manageUsers.DisplayUsers();
+            //ManageUsers manageUsers = new ManageUsers();
+            //manageUsers.RegisterUsers();
+            //manageUsers.DisplayUsers();
+
             Console.ReadLine();
         }
     }

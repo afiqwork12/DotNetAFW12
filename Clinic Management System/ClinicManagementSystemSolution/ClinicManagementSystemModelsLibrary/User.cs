@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace ClinicManagementSystemModelsLibrary
 {
-    public class User
+    public class User : IComparable
     {
         private int id;
         private string name;
         private string password;
         private int age;
         public string Type;
+
+        public int Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
+        public string Password { get => password; set => password = value; }
+        public int Age { get => age; set => age = value; }
+
         public User()
         {
             Type = "User";
@@ -37,6 +43,10 @@ namespace ClinicManagementSystemModelsLibrary
             password = Console.ReadLine();
             Console.WriteLine("Please Enter Your Age:");
             age = Convert.ToInt32(Console.ReadLine());
+        }
+        public int CompareTo(object obj)
+        {
+            return id.CompareTo(((User)obj).id);
         }
     }
 }

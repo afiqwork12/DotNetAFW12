@@ -17,7 +17,27 @@ namespace PizzaModelsLibrary
 
         public override string ToString()
         {
-            return base.ToString() + "\nMinimum amount for delivery is 0";
+            return base.ToString() + "\nMinimum amount for delivery is " + MinimumAmount;
+        }
+        public override void TakeCustomerDetailsFromUser()
+        {
+            base.TakeCustomerDetailsFromUser();
+            Console.WriteLine("Please enter your preferred minimum amount");
+            int amount = 0;
+            bool result = false;// Int32.TryParse(Console.ReadLine(), out amount);
+            while (result == false)
+            {
+                result = Int32.TryParse(Console.ReadLine(), out amount);
+                if (result == false)
+                {
+                    Console.WriteLine("Invalid input. Please try again.");
+                }
+            }
+            if (result)
+            {
+                MinimumAmount = amount;
+            }
+            //MinimumAmount = Convert.ToInt32(Console.ReadLine());
         }
     }
 }

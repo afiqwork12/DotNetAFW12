@@ -15,15 +15,15 @@ namespace PizzaFEConsoleApp
             for (int i = 0; i < customers.Length; i++)
             {
                 Console.WriteLine("Please enter the customer type (Standard / Gold)");
-                string type = ""; //Console.ReadLine();
-                if (i % 2 == 0)
-                {
-                    type = "Standard";
-                }
-                else
-                {
-                    type = "Gold";
-                }
+                string type = Console.ReadLine();
+                //if (i % 2 == 0)
+                //{
+                //    type = "Standard";
+                //}
+                //else
+                //{
+                //    type = "Gold";
+                //}
                 switch (type)
                 {
                     case "Standard":
@@ -48,6 +48,7 @@ namespace PizzaFEConsoleApp
         //}
         public void DisplayCustomers()
         {
+            Array.Sort(customers);
             for (int i = 0; i < customers.Length; i++)
             {
                 Console.WriteLine(customers[i]);

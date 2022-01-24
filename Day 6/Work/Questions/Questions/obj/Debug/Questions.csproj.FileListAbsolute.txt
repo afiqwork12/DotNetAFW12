@@ -1,0 +1,7 @@
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 6\Work\Questions\Questions\bin\Debug\Questions.exe.config
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 6\Work\Questions\Questions\bin\Debug\Questions.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 6\Work\Questions\Questions\bin\Debug\Questions.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 6\Work\Questions\Questions\obj\Debug\Questions.csprojAssemblyReference.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 6\Work\Questions\Questions\obj\Debug\Questions.csproj.CoreCompileInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 6\Work\Questions\Questions\obj\Debug\Questions.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 6\Work\Questions\Questions\obj\Debug\Questions.pdb

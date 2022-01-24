@@ -10,6 +10,10 @@ namespace ClinicManagementSystemModelsLibrary
     {
         private int experience;
         private string speciality;
+
+        public int Experience { get => experience; set => experience = value; }
+        public string Speciality { get => speciality; set => speciality = value; }
+
         public Doctor()
         {
             Type = "Doctor";

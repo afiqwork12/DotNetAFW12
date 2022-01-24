@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PizzaModelsLibrary
 {
-    public class Customer
+    public class Customer : IComparable
     {
         //private int checkIfPrivate;
         //protected int checkIfProtected;
@@ -37,20 +37,20 @@ namespace PizzaModelsLibrary
                 phone = value;
             }
         }
-        public void TakeCustomerDetailsFromUser()
+        public virtual void TakeCustomerDetailsFromUser()
         {
-            //Console.WriteLine("Please enter the customer ID");
-            //Id = Convert.ToInt32(Console.ReadLine());
-            //Console.WriteLine("Please enter the customer Name");
-            //Name = Console.ReadLine();
-            //Console.WriteLine("Please enter the customer Phone");
-            //Phone = Console.ReadLine();
             Console.WriteLine("Please enter the customer ID");
-            Id = 111;
+            Id = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Please enter the customer Name");
-            Name = "asasasas";
+            Name = Console.ReadLine();
             Console.WriteLine("Please enter the customer Phone");
-            Phone = "228636523645";
+            Phone = Console.ReadLine();
+            //Console.WriteLine("Please enter the customer ID");
+            //Id = 111;
+            //Console.WriteLine("Please enter the customer Name");
+            //Name = "asasasas";
+            //Console.WriteLine("Please enter the customer Phone");
+            //Phone = "228636523645";
         }
         public void PrintCustomerDetails()
         {
@@ -60,5 +60,15 @@ namespace PizzaModelsLibrary
         {
             return "Customer ID: " + Id + "\nName: " + Name + "\nPhone: " + Phone + "\nType: " + Type;
         }
+
+        public int CompareTo(object obj)
+        {
+            return Name.CompareTo(((Customer)obj).Name);
+        }
+
+        //public int CompareTo(object obj)
+        //{
+        //    return Id.CompareTo(((Customer)obj).Id);
+        //}
     }
 }

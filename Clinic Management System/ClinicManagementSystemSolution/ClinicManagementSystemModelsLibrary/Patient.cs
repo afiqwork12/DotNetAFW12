@@ -10,6 +10,10 @@ namespace ClinicManagementSystemModelsLibrary
     {
         private string remarks;
         private string status;
+
+        public string Remarks { get => remarks; set => remarks = value; }
+        public string Status { get => status; set => status = value; }
+
         public Patient()
         {
             Type = "Patient";
