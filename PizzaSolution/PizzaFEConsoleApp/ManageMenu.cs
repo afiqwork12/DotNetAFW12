@@ -9,7 +9,7 @@ namespace PizzaFEConsoleApp
 {
     public class ManageMenu
     {
-        Pizza[] pizzas = new Pizza[3];
+        List<Pizza> pizzas = new List<Pizza>();
         public Pizza this[int index]
         {
             get { return pizzas[index]; }
@@ -19,16 +19,18 @@ namespace PizzaFEConsoleApp
         {
 
         }
-        public ManageMenu(int size)
-        {
-            pizzas = new Pizza[size];
-        }
         public void AddPizzas()
         {
-            for (int i = 0; i < pizzas.Length; i++)
+            Console.WriteLine("Number of Pizzas to be created:");
+            int number;
+            while (!int.TryParse(Console.ReadLine(), out number))
+            {
+                Console.WriteLine("Invalid input. Try again.");
+            }
+            for (int i = 0; i < number; i++)
             {
                 pizzas[i] = new Pizza();
-                pizzas[i].Id = 100 + i;
+                pizzas[i].Id = 100 + pizzas.Count;
                 Console.WriteLine("Please enter details for pizza number " + (i + 1));
                 pizzas[i].GetPizzaDetails();
             }
@@ -37,7 +39,7 @@ namespace PizzaFEConsoleApp
 
         public void PrintPizzas()
         {
-            Array.Sort(pizzas);
+            pizzas.Sort();
             foreach (var pizza in pizzas)
             {
                 PrintPizza(pizza);
@@ -65,14 +67,18 @@ namespace PizzaFEConsoleApp
 
         public Pizza GetPizzaById(int id)
         {
-            Pizza pizza = new Pizza();
-            for (int i = 0; i < pizzas.Length; i++)
-            {
-                if (pizzas[i].Id == id)
-                {
-                    pizza = pizzas[i];
-                }
-            }
+            //Pizza pizza = new Pizza();
+            //for (int i = 0; i < pizzas.Count; i++)
+            //{
+            //    if (pizzas[i].Id == id)
+            //    {
+            //        pizza = pizzas[i];
+            //        break;
+            //    }
+            //}
+            //Predicate<Pizza> findPizza = p => p.Id == id;
+            Pizza pizza = pizzas.Find(p => p.Id == id);
+            //Pizza pizza = pizzas.Find(findPizza);
             return pizza;
         }
         public void EditPizzaPrice()
@@ -85,11 +91,12 @@ namespace PizzaFEConsoleApp
                 Console.WriteLine("Invalid entry. Please try again.");
             }
             pizza.Price = price;
-            for (int i = 0; i < pizzas.Length; i++)
+            for (int i = 0; i < pizzas.Count; i++)
             {
                 if (pizzas[i].Id == pizza.Id)
                 {
                     pizzas[i].Price = pizza.Price;
+                    break;
                 }
             }
             Console.WriteLine("New Pizza Details");
@@ -105,17 +112,16 @@ namespace PizzaFEConsoleApp
                 string check = Console.ReadLine();
                 if (check == "Yes")
                 {
-                    Pizza[] newPizzas = new Pizza[pizzas.Length - 1];
-                    int count = 0;
-                    foreach (var item in pizzas)
+                    for (int i = 0; i < pizzas.Count; i++)
                     {
-                        if (item.Id != pizza.Id)
+                        if (pizza.Id == pizzas[i].Id)
                         {
-                            newPizzas[count] = item;
-                            count++;
+                            pizzas.Remove(pizzas[i]);
+                            break;
                         }
                     }
-                    pizzas = newPizzas;
+                    Console.WriteLine("New Pizza List");
+                    PrintPizzas();
                 }
             }
         }

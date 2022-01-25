@@ -1,0 +1,7 @@
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 7\Work\CSharpFeaturesSolution\CSharpFeaturesApp\bin\Debug\CSharpFeaturesApp.exe.config
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 7\Work\CSharpFeaturesSolution\CSharpFeaturesApp\bin\Debug\CSharpFeaturesApp.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 7\Work\CSharpFeaturesSolution\CSharpFeaturesApp\bin\Debug\CSharpFeaturesApp.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 7\Work\CSharpFeaturesSolution\CSharpFeaturesApp\obj\Debug\CSharpFeaturesApp.csprojAssemblyReference.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 7\Work\CSharpFeaturesSolution\CSharpFeaturesApp\obj\Debug\CSharpFeaturesApp.csproj.CoreCompileInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 7\Work\CSharpFeaturesSolution\CSharpFeaturesApp\obj\Debug\CSharpFeaturesApp.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 7\Work\CSharpFeaturesSolution\CSharpFeaturesApp\obj\Debug\CSharpFeaturesApp.pdb

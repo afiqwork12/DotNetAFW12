@@ -14,7 +14,7 @@ namespace ClinicManagementSystemModelsLibrary
         private int doctorID;
         private string details;
         private DateTime date;
-        private string status;
+        private string status;//Open, Pending Payment, Paid, Closed
         private double price;
 
         public int Id { get => id; set => id = value; }
@@ -35,10 +35,11 @@ namespace ClinicManagementSystemModelsLibrary
                 "Appointment ID: " + id +
                 "\nPatient ID: " + patientID +
                 "\nDoctor ID: " + doctorID +
-                "\nDetails ID: " + details +
-                "\nDate: " + date +
+                "\nDetails: " + details +
+                "\nDate: " + date.ToString("dd/MM/yyyy") +
+                "\nTime: " + date.ToString("hh:mm tt") +
                 "\nPrice: $" + price +
-                "\n";
+                "\nStatus: " + status;
         }
         public void TakeDetails()
         {
@@ -53,11 +54,13 @@ namespace ClinicManagementSystemModelsLibrary
             {
                 Console.WriteLine("Invalid Value. Try again.");
             }
-            Console.WriteLine("Enter Date (e.g. dd/MM/yyyy):");
-            while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", new CultureInfo("pt-BR"), DateTimeStyles.None, out date))
+            Console.WriteLine("Enter Date (e.g. dd/MM/yyyy hh:mm AM/PM):");
+            while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy hh:mm tt", null, DateTimeStyles.None, out date))
             {
                 Console.WriteLine("Invalid Value. Try again.");
             }
+            Console.WriteLine("Enter Status:");
+            status = Console.ReadLine();
         }
 
         private static int GetIntInput()

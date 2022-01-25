@@ -16,7 +16,7 @@ namespace PizzaFEConsoleApp
             ManageMenu menu = new ManageMenu();
             do
             {
-                Console.WriteLine("1: Add 3 pizzas");
+                Console.WriteLine("1: Add pizzas");
                 Console.WriteLine("2: Edit Pizza Price");
                 Console.WriteLine("3: Remove Pizza");
                 Console.WriteLine("4: Print Pizza Details");
