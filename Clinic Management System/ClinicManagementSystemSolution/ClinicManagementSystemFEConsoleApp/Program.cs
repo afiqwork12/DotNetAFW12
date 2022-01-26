@@ -10,18 +10,18 @@ namespace ClinicManagementSystemFEConsoleApp
     class Program
     {
         static User currentUser;
-        static void ManageAppointments()
+        static List<User> users;
+        static void ManageAppointmentsPatientSide()
         {
-            Console.WriteLine("Welcome to Appointment Management");
-            int choice = 0;
-            ManageAppointments appointments = new ManageAppointments();
+            int choice;
+            ManageAppointments appointments = new ManageAppointments(currentUser, users);
             do
             {
-                Console.WriteLine("1: Add Appointment");
-                Console.WriteLine("2: Edit Appointment Price");
-                Console.WriteLine("3: Remove Appointment");
-                Console.WriteLine("4: Print Appointment Details");
-                Console.WriteLine("5: Print all Appointment Details");
+                Console.WriteLine("Choose from the options");
+                Console.WriteLine("1: View Upcoming Appointments");
+                Console.WriteLine("2: View Past Appointment");
+                Console.WriteLine("3: Pay for Appointments");
+                Console.WriteLine("4: Make an Appointment");
                 Console.WriteLine("0: Exit");
                 while (!int.TryParse(Console.ReadLine(), out choice))
                 {
@@ -30,19 +30,16 @@ namespace ClinicManagementSystemFEConsoleApp
                 switch (choice)
                 {
                     case 1:
-                        appointments.AddAppointments();
+                        appointments.PrintUpcomingAppointments();
                         break;
                     case 2:
-                        appointments.EditAppointmentPrice();
+                        appointments.PrintPastAppointments();
                         break;
                     case 3:
-                        appointments.DeleteAppointment();
+                        appointments.PayForAppointment();
                         break;
                     case 4:
-                        appointments.PrintAppointmentById();
-                        break;
-                    case 5:
-                        appointments.PrintAllAppointments();
+                        appointments.MakeAppointment();
                         break;
                     case 0:
                         Console.WriteLine("Bye Bye");
@@ -53,13 +50,9 @@ namespace ClinicManagementSystemFEConsoleApp
                 }
             } while (choice != 0);
         }
-        static void ManageAppointmentsPatientSide()
-        {
-
-        }
         static void ManageAppointmentsDoctorSide()
         {
-            int choice = 0;
+            int choice;
             ManageAppointments appointments = new ManageAppointments(currentUser);
             do
             {
@@ -94,15 +87,10 @@ namespace ClinicManagementSystemFEConsoleApp
         }
         static void Main(string[] args)
         {
-            //ManageUsers manageUsers = new ManageUsers();
-            //manageUsers.RegisterUsers();
-            //manageUsers.DisplayUsers();
-            //ManageAppointments();
-            //appointments.AddAppointments();
-            //appointments.PrintAllAppointments();
             Console.WriteLine("Welcome to the Clinic");
             ManageUsers manageUsers = new ManageUsers();
             currentUser = manageUsers.LoginUser();
+            users = manageUsers.users;
             if (currentUser.Type == "Patient")
             {
                 ManageAppointmentsPatientSide();

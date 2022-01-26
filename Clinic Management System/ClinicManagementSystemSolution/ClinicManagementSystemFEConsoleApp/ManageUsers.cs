@@ -9,7 +9,7 @@ namespace ClinicManagementSystemFEConsoleApp
 {
     public class ManageUsers
     {
-        List<User> users = new List<User>();
+        public List<User> users = new List<User>();
         User CurrentUser;
         public ManageUsers()
         {
@@ -29,6 +29,7 @@ namespace ClinicManagementSystemFEConsoleApp
                     Console.WriteLine("Please enter the correct username and password");
                 }
             } while (CurrentUser == null);
+            Console.Clear();
             if (CurrentUser.Type == "Patient")
             {
                 Console.WriteLine("Welcome, " + CurrentUser.Name);

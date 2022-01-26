@@ -27,7 +27,7 @@ namespace ClinicManagementSystemModelsLibrary
 
         public Appointment()
         {
-            status = "Open";
+            status = "Opened";
         }
         public override string ToString()
         {
@@ -38,7 +38,7 @@ namespace ClinicManagementSystemModelsLibrary
                 "\nDetails: " + details +
                 "\nDate: " + date.ToString("dd/MM/yyyy") +
                 "\nTime: " + date.ToString("hh:mm tt") +
-                "\nPrice: $" + price +
+                "\nPrice: " + (price < 0.0 ? "To be decided": "$" + price) +
                 "\nStatus: " + status;
         }
         public void TakeDetails()
@@ -55,12 +55,71 @@ namespace ClinicManagementSystemModelsLibrary
                 Console.WriteLine("Invalid Value. Try again.");
             }
             Console.WriteLine("Enter Date (e.g. dd/MM/yyyy hh:mm AM/PM):");
-            while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy hh:mm tt", null, DateTimeStyles.None, out date))
+            var check = true;
+            while (check)
             {
-                Console.WriteLine("Invalid Value. Try again.");
+                while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy hh:mm tt", null, DateTimeStyles.None, out date))
+                {
+                    Console.WriteLine("Invalid Value. Try again.");
+                }
+                if (date < DateTime.Now)
+                {
+                    Console.WriteLine("Please enter a date after today.");
+                }
+                else
+                {
+                    check = false;
+                }
             }
+            
             Console.WriteLine("Enter Status:");
             status = Console.ReadLine();
+        }
+        public void TakeDetails(User user, List<User> listOfDoctors)
+        {
+            patientID = user.Id;
+            Console.WriteLine("Please select from the list of doctors below");
+            foreach (var item in listOfDoctors)
+            {
+                Console.WriteLine("************************");
+                Console.WriteLine("ID: " + item.Id + "\nName: " + item.Name + "\nSpeciality: " + ((Doctor)item).Speciality + "\nYears of Experience: " + ((Doctor)item).Experience);
+                Console.WriteLine("************************");
+            }
+            Console.WriteLine("Enter Doctor ID:");
+            var check = true;
+            while (check)
+            {
+                doctorID = GetIntInput();
+                if (listOfDoctors.SingleOrDefault(d => d.Id == doctorID) == null)
+                {
+                    Console.WriteLine("Please select from the list of doctors above");
+                }
+                else
+                {
+                    check = false;
+                }
+            }
+            Console.WriteLine("Enter Appointment Details:");
+            details = Console.ReadLine();
+            price = -1;
+            Console.WriteLine("Enter Date (e.g. dd/MM/yyyy hh:mm AM/PM):");
+            check = true;
+            while (check)
+            {
+                while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy hh:mm tt", null, DateTimeStyles.None, out date))
+                {
+                    Console.WriteLine("Invalid Value. Try again.");
+                }
+                if (date < DateTime.Now)
+                {
+                    Console.WriteLine("Please enter a date after today.");
+                }
+                else
+                {
+                    check = false;
+                }
+            }
+            status = "Opened";
         }
 
         private static int GetIntInput()

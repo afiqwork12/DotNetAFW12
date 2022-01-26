@@ -11,46 +11,62 @@ namespace PizzaFEConsoleApp
     {
         static void ManageMenu()
         {
-            Console.WriteLine("Welcome to menu management");
-            int choice = 0;
-            ManageMenu menu = new ManageMenu();
-            do
+            try
             {
-                Console.WriteLine("1: Add pizzas");
-                Console.WriteLine("2: Edit Pizza Price");
-                Console.WriteLine("3: Remove Pizza");
-                Console.WriteLine("4: Print Pizza Details");
-                Console.WriteLine("5: Print All Pizza Details");
-                Console.WriteLine("0: Exit");
-                while (!int.TryParse(Console.ReadLine(), out choice))
+                Console.WriteLine("Welcome to menu management");
+                int choice = 0;
+                ManageMenu menu = new ManageMenu();
+                do
                 {
-                    Console.WriteLine("Please enter a number");
-                }
-                switch (choice)
+                    Console.WriteLine("1: Add pizzas");
+                    Console.WriteLine("2: Edit Pizza Price");
+                    Console.WriteLine("3: Remove Pizza");
+                    Console.WriteLine("4: Print Pizza Details");
+                    Console.WriteLine("5: Print All Pizza Details");
+                    Console.WriteLine("0: Exit");
+                    while (!int.TryParse(Console.ReadLine(), out choice))
+                    {
+                        Console.WriteLine("Please enter a number");
+                    }
+                    switch (choice)
+                    {
+                        case 1:
+                            menu.AddPizzas();
+                            break;
+                        case 2:
+                            menu.EditPizzaPrice();
+                            break;
+                        case 3:
+                            menu.RemovePizza();
+                            break;
+                        case 4:
+                            menu.PrintPizzaById();
+                            break;
+                        case 5:
+                            menu.PrintPizzas();
+                            break;
+                        case 0:
+                            Console.WriteLine("Bye Bye");
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Choice");
+                            break;
+                    }
+                } while (choice != 0);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                switch (ex.GetType().Name)
                 {
-                    case 1:
-                        menu.AddPizzas();
+                    case "NullReferenceException":
                         break;
-                    case 2:
-                        menu.EditPizzaPrice();
-                        break;
-                    case 3:
-                        menu.RemovePizza();
-                        break;
-                    case 4:
-                        menu.PrintPizzaById();
-                        break;
-                    case 5:
-                        menu.PrintPizzas();
-                        break;
-                    case 0:
-                        Console.WriteLine("Bye Bye");
+                    case "ArgumentOutOfRangeException":
                         break;
                     default:
-                        Console.WriteLine("Invalid Choice");
                         break;
                 }
-            } while (choice != 0);
+            }
         }
         static void Main(string[] args)
         {

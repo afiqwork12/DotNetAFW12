@@ -29,10 +29,12 @@ namespace PizzaFEConsoleApp
             }
             for (int i = 0; i < number; i++)
             {
-                pizzas[i] = new Pizza();
-                pizzas[i].Id = 100 + pizzas.Count;
+                Pizza pizza = new Pizza();
+                pizza.Id = 
+                    pizzas.Count < 0 ? 1 : pizzas.Max(p => p.Id) + 1;
                 Console.WriteLine("Please enter details for pizza number " + (i + 1));
-                pizzas[i].GetPizzaDetails();
+                pizza.GetPizzaDetails();
+                pizzas.Add(pizza);
             }
             PrintPizzas();
         }
@@ -77,7 +79,7 @@ namespace PizzaFEConsoleApp
             //    }
             //}
             //Predicate<Pizza> findPizza = p => p.Id == id;
-            Pizza pizza = pizzas.Find(p => p.Id == id);
+            Pizza pizza = pizzas.SingleOrDefault(p => p.Id == id);
             //Pizza pizza = pizzas.Find(findPizza);
             return pizza;
         }
