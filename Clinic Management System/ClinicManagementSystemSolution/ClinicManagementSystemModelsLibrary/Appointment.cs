@@ -16,6 +16,7 @@ namespace ClinicManagementSystemModelsLibrary
         private DateTime date;
         private string status;//Open, Pending Payment, Paid, Closed
         private double price;
+        
 
         public int Id { get => id; set => id = value; }
         public int PatientID { get => patientID; set => patientID = value; }
@@ -35,7 +36,7 @@ namespace ClinicManagementSystemModelsLibrary
                 "Appointment ID: " + id +
                 "\nPatient ID: " + patientID +
                 "\nDoctor ID: " + doctorID +
-                "\nDetails: " + details +
+                "\nPatient Notes: " + details +
                 "\nDate: " + date.ToString("dd/MM/yyyy") +
                 "\nTime: " + date.ToString("hh:mm tt") +
                 "\nPrice: " + (price < 0.0 ? "To be decided": "$" + price) +
@@ -75,7 +76,7 @@ namespace ClinicManagementSystemModelsLibrary
             Console.WriteLine("Enter Status:");
             status = Console.ReadLine();
         }
-        public void TakeDetails(User user, List<User> listOfDoctors)
+        public void TakeDetails(User user, List<User> listOfDoctors, List<Appointment> appointments)
         {
             patientID = user.Id;
             Console.WriteLine("Please select from the list of doctors below");
@@ -102,15 +103,16 @@ namespace ClinicManagementSystemModelsLibrary
             Console.WriteLine("Enter Appointment Details:");
             details = Console.ReadLine();
             price = -1;
-            Console.WriteLine("Enter Date (e.g. dd/MM/yyyy hh:mm AM/PM):");
+            Console.WriteLine("Enter Date (e.g. dd/MM/yyyy):");
             check = true;
+            DateTime appDate = DateTime.Now.AddDays(-1.0);
             while (check)
             {
-                while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy hh:mm tt", null, DateTimeStyles.None, out date))
+                while (!DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", null, DateTimeStyles.None, out appDate))
                 {
                     Console.WriteLine("Invalid Value. Try again.");
                 }
-                if (date < DateTime.Now)
+                if (appDate < DateTime.Now)
                 {
                     Console.WriteLine("Please enter a date after today.");
                 }
@@ -119,7 +121,46 @@ namespace ClinicManagementSystemModelsLibrary
                     check = false;
                 }
             }
+            var docApp = appointments.Where(x => x.doctorID == doctorID && x.date.Date == appDate.Date).ToList();
+            //if (docApp.Count > 0)
+            //{
+            //    DateTime chosenTimeslot = GetTimeSlot(appDate, docApp);
+            //    date = chosenTimeslot;
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Select a timeslot");
+            //    Console.ReadLine();
+            //}
+            DateTime chosenTimeslot = GetTimeSlot(appDate, docApp);
+            date = chosenTimeslot;
             status = "Opened";
+        }
+
+        private static DateTime GetTimeSlot(DateTime appDate, List<Appointment> docApp)
+        {
+            Console.WriteLine("Select a timeslot (choose from the numbers listed e.g. 1 or 2):");
+            List<DateTime> timeslots = new List<DateTime>();
+            for (int i = 9; i <= 17; i++)
+            {
+                string hour = (i > 12 ? i - 12 : i).ToString("D2") + ":00:00";
+                //Console.WriteLine(dsadsa.ToString("dd/MM/yyyy") + " " + hour + (i < 12 ? " AM" : " PM"));
+                timeslots.Add(DateTime.ParseExact(appDate.ToString("dd/MM/yyyy") + " " + hour + (i < 12 ? " AM" : " PM"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture));
+            }
+            timeslots = timeslots.Where(x => !docApp.Select(y => y.date).Contains(x)).ToList();
+            int count = 0;
+            foreach (var item in timeslots)
+            {
+                Console.WriteLine(count + " - " + item.ToString("hh:mm:ss tt"));
+                count++;
+            }
+            int option;
+            while (!int.TryParse(Console.ReadLine(), out option))
+            {
+                Console.WriteLine("Please select from timeslot above");
+            }
+            var chosenTimeslot = timeslots[option];
+            return chosenTimeslot;
         }
 
         private static int GetIntInput()

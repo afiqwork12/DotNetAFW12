@@ -9,47 +9,58 @@ namespace ClinicManagementSystemFEConsoleApp
 {
     public class ManageUsers
     {
-        public List<User> users = new List<User>();
-        User CurrentUser;
+        public List<User> users;
+        public User currentUser;
         public ManageUsers()
         {
-            GenerateUsers();
+        }
+        public ManageUsers(User user, List<User> users)
+        {
+            currentUser = user;
+            this.users = users;
         }
         public User LoginUser()
         {
             do
             {
+                string username = "";
                 Console.WriteLine("Please enter your username");
-                string username = Console.ReadLine();
+                do
+                {
+                    username = Console.ReadLine();
+                    if (username == "")
+                    {
+                        Console.WriteLine("Username cannot be blank");
+                    }                    
+                } while (username == "");
+                string password = "";
                 Console.WriteLine("Please enter your password");
-                string password = Console.ReadLine();
-                CurrentUser = users.Find(u => username == u.Name + u.Id && u.Password == password);
-                if (CurrentUser == null)
+                do
+                {
+                    password = Console.ReadLine();
+                    if (password == "")
+                    {
+                        Console.WriteLine("Password cannot be blank");
+                    }
+                } while (password == "");
+                currentUser = users.SingleOrDefault(u => username == u.Name + u.Id && u.Password == password);
+                if (currentUser == null)
                 {
                     Console.WriteLine("Please enter the correct username and password");
                 }
-            } while (CurrentUser == null);
+            } while (currentUser == null);
             Console.Clear();
-            if (CurrentUser.Type == "Patient")
+            if (currentUser.Type == "Patient")
             {
-                Console.WriteLine("Welcome, " + CurrentUser.Name);
+                Console.WriteLine("Welcome, " + currentUser.Name);
 
             }
             else
             {
-                Console.WriteLine("Welcome, Dr." + CurrentUser.Name);
+                Console.WriteLine("Welcome, Dr." + currentUser.Name);
 
             }
-            return CurrentUser;
-        }
-        void GenerateUsers()
-        {
-            users.Add(new Patient() { Id = 101, Name = "John", Password = "123456", Age = 25, Remarks = "Lower Back Pain", Status = "Pain Manageable" });
-            users.Add(new Patient() { Id = 102, Name = "Mary", Password = "123456", Age = 36, Remarks = "Swollen Appendix", Status = "In alot of pain" });
-            users.Add(new Doctor() { Id = 201, Name = "James", Password = "123456", Age = 33, Speciality = "Orthopedics", Experience = 4 });
-            users.Add(new Doctor() { Id = 202, Name = "Sally", Password = "123456", Age = 38, Speciality = "Surgery", Experience = 10 });
-            users.Add(new Doctor() { Id = 203, Name = "Mark", Password = "123456", Age = 28, Speciality = "Dermatology", Experience = 5 });
-            users.Add(new Doctor() { Id = 204, Name = "Jane", Password = "123456", Age = 29, Speciality = "Family Medicine", Experience = 6 });
+            return currentUser;
         }
 
         public void RegisterUsers()

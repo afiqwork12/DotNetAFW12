@@ -9,23 +9,17 @@ namespace ClinicManagementSystemFEConsoleApp
 {
     public class ManageAppointments
     {
-        List<Appointment> appointments = new List<Appointment>();
-        List<User> users;
-        User currentUser;
+        public List<Appointment> appointments;
+        public List<User> users;
+        public User currentUser;
         public ManageAppointments()
         {
-            GenerateAppointments();
         }
-        public ManageAppointments(User user)
+        public ManageAppointments(User user, List<User> users, List<Appointment> appointments)
         {
-            GenerateAppointments();
-            currentUser = user;
-        }
-        public ManageAppointments(User user, List<User> users)
-        {
-            GenerateAppointments();
             currentUser = user;
             this.users = users;
+            this.appointments = appointments;
         }
         public void MakeAppointment()
         {
@@ -34,130 +28,173 @@ namespace ClinicManagementSystemFEConsoleApp
             {
                 Id = appointments.Count < 0 ? 1 : appointments.Max(x => x.Id) + 1
             };
-            newAppointment.TakeDetails(currentUser, users.Where(u => u.Type == "Doctor").ToList());
+            newAppointment.TakeDetails(currentUser, users.Where(u => u.Type == "Doctor").ToList(), appointments);
             appointments.Add(newAppointment);
             Console.WriteLine("Appointment Made. Displaying Appointment Details.");
             PrintAppointment(newAppointment);
         }
         public void PayForAppointment()
         {
-            Console.WriteLine("Please select an unpaid appointment");
             var temp = appointments.Where(x => x.PatientID == currentUser.Id && x.Date < DateTime.Now && x.Status == "Pending Payment").ToList();
-            PrintAppointmentsFromList(temp);
-            var check = true;
-            Console.WriteLine("Please enter the appointment ID");
-            int id;
-            while (check)
+            if (temp.Count > 0)
             {
-                while (!int.TryParse(Console.ReadLine(), out id))
+                Console.WriteLine("Please select an unpaid appointment");
+                PrintAppointmentsFromList(temp);
+                var check = true;
+                Console.WriteLine("Please enter the appointment ID");
+                int id;
+                while (check)
                 {
-                    Console.WriteLine("Invalid input. Try again.");
-                }
-                if (temp.Find(x => x.Id == id) == null)
-                {
-                    Console.WriteLine("Please select from the above list.");
-                }
-                else
-                {
-                    check = false;
-                    Appointment apt = appointments.SingleOrDefault(a => a.Id == id);
-                    if (apt != null)
+                    while (!int.TryParse(Console.ReadLine(), out id))
                     {
-                        int index = appointments.IndexOf(apt);
-                        if (index > 0)
+                        Console.WriteLine("Invalid input. Try again.");
+                    }
+                    if (temp.Find(x => x.Id == id) == null)
+                    {
+                        Console.WriteLine("Please select from the above list.");
+                    }
+                    else
+                    {
+                        check = false;
+                        Appointment apt = appointments.SingleOrDefault(a => a.Id == id);
+                        if (apt != null)
                         {
-                            
-                            appointments[index].Status = "Paid";
-                            Console.WriteLine("Payment Updated. Displaying Appointment Details");
-                            PrintAppointment(appointments[index]);
+                            int index = appointments.IndexOf(apt);
+                            if (index > 0)
+                            {
+
+                                appointments[index].Status = "Paid";
+                                Console.WriteLine("Payment Updated. Displaying Appointment Details");
+                                PrintAppointment(appointments[index]);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Opps");
+                            }
                         }
                         else
                         {
                             Console.WriteLine("Opps");
                         }
                     }
+                }
+            }
+            else
+            {
+                Console.WriteLine("There are no appointments to make payment on");
+            }
+        }
+        public void AddRemarks()
+        {
+            var temp = appointments.Where(x => x.DoctorID == currentUser.Id && x.Date >= DateTime.Now).ToList();
+            if (temp.Count > 0)
+            {
+                Console.WriteLine("Please select an appointment for adding remarks to");
+                PrintAppointmentsFromList(temp);
+                Console.WriteLine("Please enter the appointment ID");
+                int id;
+                var check = true;
+                while (check)
+                {
+                    while (!int.TryParse(Console.ReadLine(), out id))
+                    {
+                        Console.WriteLine("Invalid input. Try again.");
+                    }
+                    if (temp.Find(x => x.Id == id) == null)
+                    {
+                        Console.WriteLine("Please select from the above list.");
+                    }
                     else
                     {
-                        Console.WriteLine("Opps");
+                        check = false;
+                        Console.WriteLine("Please add a remark");
+                        string details = Console.ReadLine();
+                        Appointment ta = appointments.SingleOrDefault(a => a.Id == id);
+                        if (ta != null)
+                        {
+                            int idx = appointments.IndexOf(ta);
+                            appointments[idx].Details = appointments[idx].Details + "\nDoctor Notes: " + details;
+                            Console.WriteLine("Remarks added. Displaying Appointment Details.");
+                            PrintAppointment(appointments[idx]);
+                        }
+                        //for (int i = 0; i < appointments.Count; i++)
+                        //{
+                        //    if (id == appointments[i].Id)
+                        //    {
+                        //        appointments[i].Details = appointments[i].Details + "\nDoctor Notes: " + details;
+                        //        Console.WriteLine("Remarks added. Displaying Appointment Details.");
+                        //        PrintAppointment(appointments[i]);
+                        //        break;
+                        //    }
+                        //}
                     }
                 }
+            }
+            else
+            {
+                Console.WriteLine("There are no appointments to raise payments on");
             }
         }
         public void RaisePayment()
         {
-            Console.WriteLine("Please select an appointment for raising payment request");
             var temp = appointments.Where(x => x.DoctorID == currentUser.Id && x.Date < DateTime.Now && x.Status == "Opened").ToList();
-            PrintAppointmentsFromList(temp);
-            Console.WriteLine("Please enter the appointment ID");
-            int id;
-            var check = true;
-            while (check)
+            if (temp.Count > 0)
             {
-                while (!int.TryParse(Console.ReadLine(), out id))
+                Console.WriteLine("Please select an appointment for raising payment request");
+                PrintAppointmentsFromList(temp);
+                Console.WriteLine("Please enter the appointment ID");
+                int id;
+                var check = true;
+                while (check)
                 {
-                    Console.WriteLine("Invalid input. Try again.");
-                }
-                if (temp.Find(x => x.Id == id) == null)
-                {
-                    Console.WriteLine("Please select from the above list.");
-                }
-                else
-                {
-                    check = false;
-                    Console.WriteLine("Please enter any message to be saved");
-                    string details = Console.ReadLine();
-                    Console.WriteLine("Please enter amount to be collected");
-                    double price;
-                    while (!double.TryParse(Console.ReadLine(), out price))
+                    while (!int.TryParse(Console.ReadLine(), out id))
                     {
                         Console.WriteLine("Invalid input. Try again.");
                     }
-                    for (int i = 0; i < appointments.Count; i++)
+                    if (temp.Find(x => x.Id == id) == null)
                     {
-                        if (id == appointments[i].Id)
+                        Console.WriteLine("Please select from the above list.");
+                    }
+                    else
+                    {
+                        check = false;
+                        Console.WriteLine("Please enter any message to be saved");
+                        string details = Console.ReadLine();
+                        Console.WriteLine("Please enter amount to be collected");
+                        double price;
+                        while (!double.TryParse(Console.ReadLine(), out price))
                         {
-                            appointments[i].Details = details;
-                            appointments[i].Price = price;
-                            appointments[i].Status = (price == 0 ? "Paid" : "Pending Payment");
-                            Console.WriteLine("Payment Raised. Displaying Appointment Details.");
-                            PrintAppointment(appointments[i]);
-                            break;
+                            Console.WriteLine("Invalid input. Try again.");
                         }
+                        Appointment ta = appointments.SingleOrDefault(a => a.Id == id);
+                        if (ta != null)
+                        {
+                            int idx = appointments.IndexOf(ta);
+                            appointments[idx].Details = appointments[idx].Details + "\nDoctor Notes: " + details;
+                            appointments[idx].Price = price;
+                            appointments[idx].Status = (price == 0 ? "Paid" : "Pending Payment");
+                            Console.WriteLine("Payment Raised. Displaying Appointment Details.");
+                            PrintAppointment(appointments[idx]);
+                        }
+                        //for (int i = 0; i < appointments.Count; i++)
+                        //{
+                        //    if (id == appointments[i].Id)
+                        //    {
+                        //        appointments[i].Details = appointments[i].Details + "\nDoctor Notes: " + details;
+                        //        appointments[i].Price = price;
+                        //        appointments[i].Status = (price == 0 ? "Paid" : "Pending Payment");
+                        //        Console.WriteLine("Payment Raised. Displaying Appointment Details.");
+                        //        PrintAppointment(appointments[i]);
+                        //        break;
+                        //    }
+                        //}
                     }
                 }
             }
-            
-            //while (!int.TryParse(Console.ReadLine(), out id))
-            //{
-            //    Console.WriteLine("Invalid input. Try again.");
-            //}
-            //if (temp.Find(x => x.Id == id) != null)
-            //{
-            //    Console.WriteLine("Please enter any message to be saved");
-            //    string details = Console.ReadLine();
-            //    Console.WriteLine("Please enter amount to be collected");
-            //    double price;
-            //    while (!double.TryParse(Console.ReadLine(), out price))
-            //    {
-            //        Console.WriteLine("Invalid input. Try again.");
-            //    }
-            //    for (int i = 0; i < appointments.Count; i++)
-            //    {
-            //        if (id == appointments[i].Id)
-            //        {
-            //            appointments[i].Details = details;
-            //            appointments[i].Price = price;
-            //            appointments[i].Status = "Pending Payment";
-            //            Console.WriteLine("Updated");
-            //            PrintAppointment(appointments[i]);
-            //            break;
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    Console.WriteLine("Please select the appointments from the list");
-            //}
+            else
+            {
+                Console.WriteLine("There are no appointments to raise payments on");
+            }
         }
 
         private void PrintAppointmentsFromList(List<Appointment> temp)
@@ -168,16 +205,7 @@ namespace ClinicManagementSystemFEConsoleApp
             }
         }
 
-        public void GenerateAppointments()
-        {
-            appointments.Add(new Appointment() { Id = 1, PatientID = 101, DoctorID = 201, Details = "aaaa", Date = new DateTime(2022,2,16,14,20,0), Price = -1, Status = "Opened"});
-            appointments.Add(new Appointment() { Id = 2, PatientID = 101, DoctorID = 201, Details = "aaaa2", Date = new DateTime(2022,1,20,12,20,0), Price = -1, Status = "Opened" });
-            appointments.Add(new Appointment() { Id = 3, PatientID = 101, DoctorID = 201, Details = "aaaa3", Date = new DateTime(2022,1,10,14,35,0), Price = 444.36, Status = "Pending Payment" });
-            appointments.Add(new Appointment() { Id = 4, PatientID = 101, DoctorID = 201, Details = "aaaa4", Date = new DateTime(2022,1,11,14,35,0), Price = 52.2, Status = "Pending Payment" });
-            appointments.Add(new Appointment() { Id = 5, PatientID = 101, DoctorID = 201, Details = "aaaa5", Date = new DateTime(2022,1,12,14,35,0), Price = 62.2, Status = "Paid" });
-            appointments.Add(new Appointment() { Id = 6, PatientID = 102, DoctorID = 201, Details = "bbbb", Date = new DateTime(2021,12,15,11,30,0), Price = 20.0, Status = "Paid"});
-            appointments.Add(new Appointment() { Id = 7, PatientID = 102, DoctorID = 201, Details = "cccc", Date = new DateTime(2020,5,4,13,25,0), Price = 123.6, Status = "Paid" });
-        }
+        
         public void PrintUpcomingAppointments()
         {
             List<Appointment> temp;
@@ -190,7 +218,14 @@ namespace ClinicManagementSystemFEConsoleApp
             {
                 temp = appointments.Where(x => x.DoctorID == currentUser.Id && x.Date >= DateTime.Now).ToList();
             }
-            PrintAppointmentsFromList(temp);
+            if (temp.Count > 0)
+            {
+                PrintAppointmentsFromList(temp);
+            }
+            else
+            {
+                Console.WriteLine("There are no upcoming appointments");
+            }
         }
         public void PrintPastAppointments()
         {
@@ -204,7 +239,15 @@ namespace ClinicManagementSystemFEConsoleApp
             {
                 temp = appointments.Where(x => x.DoctorID == currentUser.Id && x.Date < DateTime.Now).ToList();
             }
-            PrintAppointmentsFromList(temp);
+            if (temp.Count > 0)
+            {
+                PrintAppointmentsFromList(temp);
+            }
+            else
+            {
+                Console.WriteLine("There are no past appointments");
+            }
+
         }
         public void AddAppointments()
         {
