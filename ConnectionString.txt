@@ -1,0 +1,1 @@
+Data Source=DESKTOP-UIDK7OE\SQLSERVER2022A3;user id=sa;password=123456;Initial Catalog=dbSample28Jan22

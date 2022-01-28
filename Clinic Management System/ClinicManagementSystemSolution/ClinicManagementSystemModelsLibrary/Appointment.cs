@@ -101,7 +101,19 @@ namespace ClinicManagementSystemModelsLibrary
                 }
             }
             Console.WriteLine("Enter Appointment Details:");
-            details = Console.ReadLine();
+            do
+            {
+                details = Console.ReadLine();
+                if (details == "")
+                {
+                    Console.WriteLine("Details cannot be blank");
+                }
+                else
+                {
+                    break;
+                }
+            } while (true);
+            
             price = -1;
             Console.WriteLine("Enter Date (e.g. dd/MM/yyyy):");
             check = true;
@@ -118,10 +130,20 @@ namespace ClinicManagementSystemModelsLibrary
                 }
                 else
                 {
-                    check = false;
+                    var docApp = appointments.Where(x => x.doctorID == doctorID && x.date.Date == appDate.Date).ToList();
+                    DateTime chosenTimeslot = GetTimeSlot(appDate, docApp);
+                    if (chosenTimeslot < DateTime.Now)
+                    {
+                        Console.WriteLine("Please select another date");
+                    }
+                    else
+                    {
+                        date = chosenTimeslot;
+                        check = false;
+                    }
                 }
             }
-            var docApp = appointments.Where(x => x.doctorID == doctorID && x.date.Date == appDate.Date).ToList();
+            
             //if (docApp.Count > 0)
             //{
             //    DateTime chosenTimeslot = GetTimeSlot(appDate, docApp);
@@ -132,35 +154,51 @@ namespace ClinicManagementSystemModelsLibrary
             //    Console.WriteLine("Select a timeslot");
             //    Console.ReadLine();
             //}
-            DateTime chosenTimeslot = GetTimeSlot(appDate, docApp);
-            date = chosenTimeslot;
+            
             status = "Opened";
         }
 
         private static DateTime GetTimeSlot(DateTime appDate, List<Appointment> docApp)
         {
-            Console.WriteLine("Select a timeslot (choose from the numbers listed e.g. 1 or 2):");
             List<DateTime> timeslots = new List<DateTime>();
             for (int i = 9; i <= 17; i++)
             {
                 string hour = (i > 12 ? i - 12 : i).ToString("D2") + ":00:00";
+                //string hour1 = (i > 12 ? i - 12 : i).ToString("D2") + ":30:00";
                 //Console.WriteLine(dsadsa.ToString("dd/MM/yyyy") + " " + hour + (i < 12 ? " AM" : " PM"));
                 timeslots.Add(DateTime.ParseExact(appDate.ToString("dd/MM/yyyy") + " " + hour + (i < 12 ? " AM" : " PM"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture));
+                //timeslots.Add(DateTime.ParseExact(appDate.ToString("dd/MM/yyyy") + " " + hour1 + (i < 12 ? " AM" : " PM"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture));
             }
             timeslots = timeslots.Where(x => !docApp.Select(y => y.date).Contains(x)).ToList();
-            int count = 0;
-            foreach (var item in timeslots)
+            if (timeslots.Count > 0)
             {
-                Console.WriteLine(count + " - " + item.ToString("hh:mm:ss tt"));
-                count++;
+                Console.WriteLine("Select a timeslot (choose from the numbers listed e.g. 0 to " + (timeslots.Count - 1));
+                int count = 0;
+                foreach (var item in timeslots)
+                {
+                    Console.WriteLine(count + " - " + item.ToString("hh:mm:ss tt"));
+                    count++;
+                }
+                int option;
+                do
+                {
+                    while (!int.TryParse(Console.ReadLine(), out option))
+                    {
+                        Console.WriteLine("Please enter a number from the selection above");
+                    }
+                    if (option >= 0 && option < timeslots.Count)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("Please select from timeslot above");
+                } while (true);
+                var chosenTimeslot = timeslots[option];
+                return chosenTimeslot;
             }
-            int option;
-            while (!int.TryParse(Console.ReadLine(), out option))
+            else
             {
-                Console.WriteLine("Please select from timeslot above");
+                return DateTime.Now.AddDays(-1.0);
             }
-            var chosenTimeslot = timeslots[option];
-            return chosenTimeslot;
         }
 
         private static int GetIntInput()
