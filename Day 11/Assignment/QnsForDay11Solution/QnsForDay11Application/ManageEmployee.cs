@@ -21,9 +21,17 @@ namespace QnsForDay11Application
             {
                 Console.WriteLine("Printing all employees");
                 Console.WriteLine("{0,-2} | {1,-10} | {2,-3}",  "ID", "Name", "Age");
-                foreach (var item in employeeDAL.GetAllEmployees())
+                var employees = employeeDAL.GetAllEmployees();
+                if (employees != null)
                 {
-                    Console.WriteLine("{0,-2} | {1,-10} | {2,-3}", item.ID, item.Name, item.Age);
+                    foreach (var item in employeeDAL.GetAllEmployees())
+                    {
+                        Console.WriteLine("{0,-2} | {1,-10} | {2,-3}", item.ID, item.Name, item.Age);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No employees to print. Please add some first.");
                 }
             }
             catch (Exception e)
