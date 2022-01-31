@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbPizzaStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblPizza">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" />
+          <Property Name="IsVeg" Type="bit" />
+          <Property Name="price" Type="float" />
+        </EntityType>
+        <Function Name="proc_GetAllPizzas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="proc_GetPizzaByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="proc_InsertPizza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pname" Type="varchar" Mode="In" />
+          <Parameter Name="veg" Type="bit" Mode="In" />
+          <Parameter Name="pprice" Type="float" Mode="In" />
+        </Function>
+        <Function Name="proc_UpdatePizzaPrice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pid" Type="int" Mode="In" />
+          <Parameter Name="pprice" Type="float" Mode="In" />
+        </Function>
+        <EntityContainer Name="dbPizzaStoreModelStoreContainer">
+          <EntitySet Name="tblPizza" EntityType="Self.tblPizza" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbPizzaStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblPizza">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsVeg" Type="Boolean" />
+          <Property Name="price" Type="Double" />
+        </EntityType>
+        <EntityContainer Name="dbPizzaStoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblPizzas" EntityType="Self.tblPizza" />
+          <FunctionImport Name="proc_GetAllPizzas" ReturnType="Collection(dbPizzaStoreModel.proc_GetAllPizzas_Result)" />
+          <FunctionImport Name="proc_GetPizzaByID" ReturnType="Collection(dbPizzaStoreModel.proc_GetPizzaByID_Result)">
+          <Parameter Name="pid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="proc_InsertPizza">
+            <Parameter Name="pname" Mode="In" Type="String" />
+            <Parameter Name="veg" Mode="In" Type="Boolean" />
+            <Parameter Name="pprice" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="proc_UpdatePizzaPrice">
+            <Parameter Name="pid" Mode="In" Type="Int32" />
+            <Parameter Name="pprice" Mode="In" Type="Double" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="proc_GetAllPizzas_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="IsVeg" Nullable="true" />
+          <Property Type="Double" Name="price" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="proc_GetPizzaByID_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="IsVeg" Nullable="true" />
+          <Property Type="Double" Name="price" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbPizzaStoreModelStoreContainer" CdmEntityContainer="dbPizzaStoreEntities">
+          <EntitySetMapping Name="tblPizzas">
+            <EntityTypeMapping TypeName="dbPizzaStoreModel.tblPizza">
+              <MappingFragment StoreEntitySet="tblPizza">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="IsVeg" ColumnName="IsVeg" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="proc_GetAllPizzas" FunctionName="dbPizzaStoreModel.Store.proc_GetAllPizzas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbPizzaStoreModel.proc_GetAllPizzas_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="IsVeg" ColumnName="IsVeg" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="proc_GetPizzaByID" FunctionName="dbPizzaStoreModel.Store.proc_GetPizzaByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dbPizzaStoreModel.proc_GetPizzaByID_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="IsVeg" ColumnName="IsVeg" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="proc_InsertPizza" FunctionName="dbPizzaStoreModel.Store.proc_InsertPizza" />
+          <FunctionImportMapping FunctionImportName="proc_UpdatePizzaPrice" FunctionName="dbPizzaStoreModel.Store.proc_UpdatePizzaPrice" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

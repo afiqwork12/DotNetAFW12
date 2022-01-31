@@ -1,4 +1,5 @@
-﻿using PizzaModelsLibrary;
+﻿using PizzaDALLibrary;
+using PizzaModelsLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ namespace PizzaFEConsoleApp
 {
     public class ManageMenu
     {
-        List<Pizza> pizzas = new List<Pizza>();
+        List<Pizza> pizzas;
+        PizzaDAL PizzaDAL;
         public Pizza this[int index]
         {
             get { return pizzas[index]; }
@@ -17,7 +19,7 @@ namespace PizzaFEConsoleApp
         }
         public ManageMenu()
         {
-
+            PizzaDAL = new PizzaDAL();
         }
         public void AddPizzas()
         {
@@ -30,21 +32,55 @@ namespace PizzaFEConsoleApp
             for (int i = 0; i < number; i++)
             {
                 Pizza pizza = new Pizza();
-                pizza.Id = 
-                    pizzas.Count < 0 ? 1 : pizzas.Max(p => p.Id) + 1;
+                //pizza.Id =
+                //    pizzas.Count < 0 ? 1 : pizzas.Max(p => p.Id) + 1;
                 Console.WriteLine("Please enter details for pizza number " + (i + 1));
                 pizza.GetPizzaDetails();
-                pizzas.Add(pizza);
+                try
+                {
+                    PizzaDAL.InsertNewPizza(pizza);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Could not add pizza");
+                    throw;
+                }
             }
             PrintPizzas();
+            
+        }
+
+        void GetAllPizza()
+        {
+            try
+            {
+                pizzas = PizzaDAL.GetAllPizza().ToList();
+            }
+            catch (NoPizzaException npe)
+            {
+                Console.WriteLine(npe.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong");
+                Console.WriteLine(e.Message);
+            }
         }
 
         public void PrintPizzas()
         {
-            pizzas.Sort();
-            foreach (var pizza in pizzas)
+            GetAllPizza();
+            if (pizzas != null || pizzas.Count > 0)
             {
-                PrintPizza(pizza);
+                pizzas.Sort();
+                foreach (var pizza in pizzas)
+                {
+                    PrintPizza(pizza);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No pizzas available. Try again later.");
             }
         }
 
@@ -93,16 +129,15 @@ namespace PizzaFEConsoleApp
                 Console.WriteLine("Invalid entry. Please try again.");
             }
             pizza.Price = price;
-            for (int i = 0; i < pizzas.Count; i++)
+            if (PizzaDAL.UpdatePizzaPrice(pizza.Id, pizza.Price))
             {
-                if (pizzas[i].Id == pizza.Id)
-                {
-                    pizzas[i].Price = pizza.Price;
-                    break;
-                }
+                Console.WriteLine("New Pizza Details");
+                Console.WriteLine(pizza);
             }
-            Console.WriteLine("New Pizza Details");
-            Console.WriteLine(pizza);
+            else
+            {
+                Console.WriteLine("Unable to update pizza price");
+            }
         }
         public void RemovePizza()
         {

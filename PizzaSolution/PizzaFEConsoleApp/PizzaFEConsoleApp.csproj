@@ -33,7 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,8 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PizzaDALLibrary\PizzaDALLibrary.csproj">
+      <Project>{17345b23-de11-4557-89b7-69c61d5b4738}</Project>
+      <Name>PizzaDALLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PizzaEF\PizzaEF.csproj">
+      <Project>{1ab3e2c2-e4aa-47f7-a1a3-374e8a08348d}</Project>
+      <Name>PizzaEF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PizzaModelsLibrary\PizzaModelsLibrary.csproj">
       <Project>{0c34aa9b-a79d-4c64-8df6-ce88486077b2}</Project>
       <Name>PizzaModelsLibrary</Name>

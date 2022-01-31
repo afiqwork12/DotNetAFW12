@@ -1,0 +1,12 @@
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\obj\Debug\QnsForDay11Application.csprojAssemblyReference.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\obj\Debug\QnsForDay11Application.csproj.CoreCompileInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\bin\Debug\QnsForDay11Application.exe.config
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\bin\Debug\QnsForDay11Application.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\bin\Debug\QnsForDay11Application.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\bin\Debug\ClassLibrary1.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\bin\Debug\QnsForDay11DALLibrary.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\bin\Debug\ClassLibrary1.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\bin\Debug\QnsForDay11DALLibrary.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\obj\Debug\QnsForDay11Application.csproj.CopyComplete
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\obj\Debug\QnsForDay11Application.exe
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 11\Work\QnsForDay11Solution\QnsForDay11Application\obj\Debug\QnsForDay11Application.pdb

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PizzaEF.Modals;
 
 namespace PizzaFEConsoleApp
 {
@@ -74,6 +75,13 @@ namespace PizzaFEConsoleApp
             //manage.RegisterCustomer();
             //manage.DisplayCustomers();
             ManageMenu();
+            //using (var db = new dbPizzaStoreEntities())
+            //{
+            //    foreach (var item in db.proc_GetAllPizzas())
+            //    {
+            //        Console.WriteLine(item.id + " " + item.name);
+            //    }
+            //}
             Console.ReadLine();
         }
     }

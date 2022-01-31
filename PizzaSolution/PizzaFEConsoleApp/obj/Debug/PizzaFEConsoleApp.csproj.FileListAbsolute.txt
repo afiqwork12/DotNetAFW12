@@ -15,3 +15,12 @@ C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\obj\D
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.csproj.CopyComplete
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.exe
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\obj\Debug\PizzaFEConsoleApp.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaDALLibrary.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaDALLibrary.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\EntityFramework.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaEF.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaEF.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\PizzaEF.dll.config
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\EntityFramework.xml
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaFEConsoleApp\bin\Debug\EntityFramework.SqlServer.xml

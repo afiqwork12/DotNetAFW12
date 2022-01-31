@@ -1,0 +1,9 @@
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaDALLibrary\obj\Debug\PizzaDALLibrary.csprojAssemblyReference.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaDALLibrary\obj\Debug\PizzaDALLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaDALLibrary\bin\Debug\PizzaDALLibrary.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaDALLibrary\bin\Debug\PizzaDALLibrary.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaDALLibrary\bin\Debug\PizzaModelsLibrary.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaDALLibrary\bin\Debug\PizzaModelsLibrary.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaDALLibrary\obj\Debug\PizzaDALLibrary.csproj.CopyComplete
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaDALLibrary\obj\Debug\PizzaDALLibrary.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\PizzaSolution\PizzaDALLibrary\obj\Debug\PizzaDALLibrary.pdb
