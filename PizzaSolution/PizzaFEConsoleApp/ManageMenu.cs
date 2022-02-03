@@ -1,4 +1,4 @@
-﻿using PizzaDALLibrary;
+﻿using PizzaDALEFLibrary;
 using PizzaModelsLibrary;
 using System;
 using System.Collections.Generic;
@@ -144,21 +144,20 @@ namespace PizzaFEConsoleApp
             Pizza pizza = GetPizzaById(GetIdFromUser());
             if (pizza != null)
             {
-                Console.WriteLine("Do you want to delete the following Pizza?");
+                Console.WriteLine("Do you want to delete the following Pizza? Yes / No");
                 PrintPizza(pizza);
                 string check = Console.ReadLine();
                 if (check == "Yes")
                 {
-                    for (int i = 0; i < pizzas.Count; i++)
+                    if (PizzaDAL.RemovePizza(pizza.Id))
                     {
-                        if (pizza.Id == pizzas[i].Id)
-                        {
-                            pizzas.Remove(pizzas[i]);
-                            break;
-                        }
+                        Console.WriteLine("New Pizza List");
+                        PrintPizzas();
                     }
-                    Console.WriteLine("New Pizza List");
-                    PrintPizzas();
+                    else
+                    {
+                        Console.WriteLine("Deletion Failed");
+                    }
                 }
             }
         }

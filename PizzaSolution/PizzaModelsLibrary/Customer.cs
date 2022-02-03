@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +15,8 @@ namespace PizzaModelsLibrary
         //internal int checkIfInternal;
         //protected internal int checkIfProtectedInternal;
         public int MinimumAmount { get; set; }
-        public int Id { get; set; }
+        [Key]
+        public int CustomerNumber { get; set; }
         public string Name { get; set; }
         string phone;
 
@@ -40,7 +43,7 @@ namespace PizzaModelsLibrary
         public virtual void TakeCustomerDetailsFromUser()
         {
             Console.WriteLine("Please enter the customer ID");
-            Id = Convert.ToInt32(Console.ReadLine());
+            CustomerNumber = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Please enter the customer Name");
             Name = Console.ReadLine();
             Console.WriteLine("Please enter the customer Phone");
@@ -54,11 +57,11 @@ namespace PizzaModelsLibrary
         }
         public void PrintCustomerDetails()
         {
-            Console.WriteLine("Customer ID: {0} Name: {1} Phone: {2}", Id, Name, Phone);
+            Console.WriteLine("Customer ID: {0} Name: {1} Phone: {2}", CustomerNumber, Name, Phone);
         }
         public override string ToString()
         {
-            return "Customer ID: " + Id + "\nName: " + Name + "\nPhone: " + Phone + "\nType: " + Type;
+            return "Customer ID: " + CustomerNumber + "\nName: " + Name + "\nPhone: " + Phone + "\nType: " + Type;
         }
 
         public int CompareTo(object obj)
@@ -70,5 +73,7 @@ namespace PizzaModelsLibrary
         //{
         //    return Id.CompareTo(((Customer)obj).Id);
         //}
+        //public int CartNumber { get; set; }
+        //[ForeignKey("CartNumber")]
     }
 }

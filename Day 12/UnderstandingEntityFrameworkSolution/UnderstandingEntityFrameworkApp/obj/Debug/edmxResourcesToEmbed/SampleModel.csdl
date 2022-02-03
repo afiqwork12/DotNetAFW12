@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbSample28Jan22Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="dbSample28Jan22Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <FunctionImport Name="proc_GetAllUsers" ReturnType="Collection(dbSample28Jan22Model.proc_GetAllUsers_Result)" />
+  </EntityContainer>
+  <ComplexType Name="proc_GetAllUsers_Result">
+    <Property Type="String" Name="userid" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+  </ComplexType>
+</Schema>
