@@ -112,15 +112,27 @@ namespace ClinicManagementSystemModelsLibrary
 
         private static DateTime GetTimeSlot(DateTime appDate, List<Appointment> docApp)
         {
+
             List<DateTime> timeslots = new List<DateTime>();
             for (int i = 9; i <= 17; i++)
             {
                 string hour = (i > 12 ? i - 12 : i).ToString("D2") + ":00:00";
-                timeslots.Add(DateTime.ParseExact(appDate.ToString("dd/MM/yyyy") + " " + hour + (i < 12 ? " AM" : " PM"), "dd/MM/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture));
+                timeslots.Add
+                    (
+                        DateTime.ParseExact(appDate.ToString("dd/MM/yyyy") + " " + 
+                        hour + (i < 12 ? " AM" : " PM"), "dd/MM/yyyy hh:mm:ss tt", 
+                        CultureInfo.InvariantCulture)
+                    );
             }
+
+
             timeslots = timeslots.Where(x => !docApp.Select(y => y.date).Contains(x)).ToList();
+
+
             if (timeslots.Count > 0)
+
             {
+
                 Console.WriteLine("Select a timeslot (choose from the numbers listed e.g. 0 to " + (timeslots.Count - 1));
                 int count = 0;
                 foreach (var item in timeslots)
@@ -128,6 +140,7 @@ namespace ClinicManagementSystemModelsLibrary
                     Console.WriteLine(count + " - " + item.ToString("hh:mm:ss tt"));
                     count++;
                 }
+
                 int option;
                 do
                 {
@@ -143,10 +156,13 @@ namespace ClinicManagementSystemModelsLibrary
                 } while (true);
                 var chosenTimeslot = timeslots[option];
                 return chosenTimeslot;
+
             }
             else
             {
+
                 return DateTime.Now.AddDays(-1.0);
+
             }
         }
 

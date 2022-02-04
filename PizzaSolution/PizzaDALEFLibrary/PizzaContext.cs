@@ -16,10 +16,12 @@ namespace PizzaDALEFLibrary
         public PizzaContext():base(ConfigurationManager.ConnectionStrings["conn"].ConnectionString)
         {
             //Database.SetInitializer(new DropCreateDatabaseAlways<PizzaContext>());
+
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CartPizzas>().HasKey(cp => new { cp.PizzaId, cp.CartNumber });
+            //modelBuilder.Entity<GoldCustomer>().Map
         }
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Customer> Customers { get; set; }

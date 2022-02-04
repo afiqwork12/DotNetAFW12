@@ -16,11 +16,7 @@ namespace QuestionForDay12Application
         public bool InsertDepartment(Department department)
         {
             _databaseContext.Departments.Add(department);
-            if (_databaseContext.SaveChanges() > 0)
-            {
-                return true;
-            }
-            return false;
+            return SaveChanges();
         }
         public bool EditDepartmentName(int id, string name)
         {

@@ -1,4 +1,5 @@
-﻿using PizzaModelsLibrary;
+﻿using PizzaDALEFLibrary;
+using PizzaModelsLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,12 +69,17 @@ namespace PizzaFEConsoleApp
                 }
             }
         }
+        static void ManageCart()
+        {
+            ManageCart cart = new ManageCart();
+            cart.PrintCart();
+        }
         static void Main(string[] args)
         {
             //ManageCustomer manage = new ManageCustomer();
             //manage.RegisterCustomer();
             //manage.DisplayCustomers();
-            ManageMenu();
+            //ManageMenu();
             //using (var db = new dbPizzaStoreEntities())
             //{
             //    foreach (var item in db.proc_GetAllPizzas())
@@ -81,6 +87,7 @@ namespace PizzaFEConsoleApp
             //        Console.WriteLine(item.id + " " + item.name);
             //    }
             //}
+            ManageCart();
             Console.ReadLine();
         }
     }
