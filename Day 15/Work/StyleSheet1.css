@@ -1,0 +1,44 @@
+﻿/*body {
+    background-color: antiquewhite;
+}*/
+
+#divLogin {
+    /*order of navigation: top right bottom left*/
+    /*border: double 2px brown;*/
+    background-color: antiquewhite;
+    border-style: double;
+    border-width: 2px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    /*left: 450px;
+    top: 200px;*/
+    margin: auto;
+    width: 50%;
+}
+
+/*.clsInput {
+    position: relative;*/
+    /*left:20px;*/
+/*}*/
+
+#spanBtns {
+    /*position: absolute;
+            left: 100px;*/
+}
+
+/*#formLogin {
+    margin: auto;
+    width: 50%;
+}
+
+label {
+    color: red;
+}
+
+#btnSubmit {
+    border-color: blue;
+}
+
+#btnCancel {
+    border-color: red;*/
+}

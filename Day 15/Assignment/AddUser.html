@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Add User</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="divLogin" class="alert alert-warning">
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" id="txtName" required class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phone</label>
+            <input class="form-control" id="txtPhone" pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$" required type="text" name="phone" placeholder="e.g. +6585696563" />
+        </div>
+        <div class="mb-3">
+            <span id="spanBtns">
+                <input class="btn btn-success" onclick="AddUser()" type="submit" name="submit" value="Add" />
+                &nbsp;
+                <input class="btn btn-danger" onclick="ResetForm()" type="reset" name="reset" value="Cancel" />
+            </span>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyRows">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            var users =
+                [
+                    {
+                        Name: "John",
+                        Phone: "+6585233652"
+                    },
+                    {
+                        Name: "Mark",
+                        Phone: "+6598556985"
+                    }
+                ]
+            function LoadUsers() {
+                var finalOutput = "";
+                for (var i = 0; i < users.length; i++) {
+                    var output = "";
+                    output += "<tr><th scope = \"row\">" + (i + 1) + "</th>";
+                    output += "<td>" + users[i].Name + "</td>"
+                    output += "<td>" + users[i].Phone + "</td>"
+                    output += "</tr>"
+                    finalOutput += output;
+                }
+                document.getElementById("tbodyRows").innerHTML = finalOutput;
+            }
+            LoadUsers()
+            function AddUser() {
+                var name = document.getElementById("txtName");
+                var phone = document.getElementById("txtPhone");
+                if (name.value == "") {
+                    alert("Please enter a name");
+                    name.focus();
+                }
+                else {
+                    if (phone.value == "") {
+                        alert("Please enter a phone number")
+                        phone.focus();
+                    }
+                    else {
+                        var phoneRegx = "^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
+                        if (phone.value.match(phoneRegx)) {
+                            var user =
+                            {
+                                Name: name.value,
+                                Phone: phone.value
+                            }
+                            users.push(user);
+                            LoadUsers();
+                        }
+                        else {
+                            alert("Invalid phone number");
+                        }
+                    }
+                }
+            }
+            function ResetForm() {
+                document.getElementById("txtName").value = ""
+                document.getElementById("txtPhone").value = ""
+            }
+        </script>
+    </div>
+</body>
+</html>

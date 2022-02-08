@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body
+        {
+            background-color:antiquewhite;
+        }
+        #divLogin {
+            /*order of navigation: top right bottom left*/
+            /*border: double 2px brown;*/
+            border-color: yellow brown /*blue*/ /*pink*/;
+            border-style: double;
+            border-width: 2px;
+            border-radius: 20px;
+            padding: 5px 10px;
+            /*left: 450px;
+            top: 200px;*/
+            margin: auto;
+            width: 50%;
+        }
+        .clsInput
+        {
+            position: relative;
+            /*left:20px;*/
+        }
+        #spanBtns
+        {
+            /*position: absolute;
+            left: 100px;*/
+        }
+        #formLogin 
+        {
+            margin: auto;
+            width: 50%;
+        }
+        label
+        {
+            color: red;
+        }
+        #btnSubmit {
+            border-color: blue;
+        }
+        #btnCancel {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="divLogin">
+        <form id="formLogin" action="Homepage.html" method="post">
+            <table>
+                <tr>
+                    <td><label>Username</label></td>
+                    <td>
+                        <input class="clsInput" required type="text" name="username" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>Password</label></td>
+                    <td>
+                        <input class="clsInput" pattern="[A-Za-z][A-Za-z]*[0-9]*" required type="password" name="password" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <span id="spanBtns">
+                            <input id="btnSubmit" type="submit" name="submit" value="Login" />
+                            &nbsp;
+                            <input id="btnCancel" type="reset" name="reset" value="Cancel" />
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
