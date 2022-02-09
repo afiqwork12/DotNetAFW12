@@ -1,0 +1,32 @@
+﻿@model ProductApplication.Models.Product
+@{
+    ViewData["Title"] = "Product Details";
+}
+@using (Html.BeginForm("Details", "Product", FormMethod.Post))
+{
+    <h1>Product Details</h1>
+    <div class="mb-3">
+        <label class="form-label">Product ID</label>
+        @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Product Price</label>
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Product Supplier Id</label>
+        @Html.TextBoxFor(m => m.SupplierId, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Product Quantity</label>
+        @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Product Remarks</label>
+        @Html.TextAreaFor(m => m.Remarks, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+}

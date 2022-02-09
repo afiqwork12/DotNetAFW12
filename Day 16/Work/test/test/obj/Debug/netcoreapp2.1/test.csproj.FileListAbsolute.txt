@@ -1,0 +1,14 @@
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\bin\Debug\netcoreapp2.1\test.deps.json
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\bin\Debug\netcoreapp2.1\test.runtimeconfig.json
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\bin\Debug\netcoreapp2.1\test.runtimeconfig.dev.json
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\bin\Debug\netcoreapp2.1\test.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\bin\Debug\netcoreapp2.1\test.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\obj\Debug\netcoreapp2.1\test.AssemblyInfoInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\obj\Debug\netcoreapp2.1\test.AssemblyInfo.cs
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\obj\Debug\netcoreapp2.1\test.csproj.CoreCompileInputs.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\obj\Debug\netcoreapp2.1\test.RazorAssemblyInfo.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\obj\Debug\netcoreapp2.1\test.RazorAssemblyInfo.cs
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\obj\Debug\netcoreapp2.1\test.RazorTargetAssemblyInfo.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\obj\Debug\netcoreapp2.1\test.dll
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\obj\Debug\netcoreapp2.1\test.pdb
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\test\test\obj\Debug\netcoreapp2.1\test.genruntimeconfig.cache
