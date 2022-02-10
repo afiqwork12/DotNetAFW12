@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace PizzaApplication.Models
 {
@@ -11,5 +12,8 @@ namespace PizzaApplication.Models
         public string Name { get; set; }
         public bool IsVeg { get; set; }
         public double Price { get; set; }
+
+        public string Pic { get; set; }
+        public string Details { get; set; }
     }
 }

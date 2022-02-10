@@ -35,3 +35,6 @@ C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\PizzaApplication\PizzaApp
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\PizzaApplication\PizzaApplication\obj\Debug\netcoreapp2.1\PizzaApplication.csproj.CopyComplete
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\PizzaApplication\PizzaApplication\obj\Debug\netcoreapp2.1\PizzaApplication.csprojAssemblyReference.cache
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\PizzaApplication\PizzaApplication\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\Create.cshtml.g.cs
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\PizzaApplication\PizzaApplication\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\Details.cshtml.g.cs
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\PizzaApplication\PizzaApplication\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\Edit.cshtml.g.cs
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 16\Work\PizzaApplication\PizzaApplication\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\Delete.cshtml.g.cs

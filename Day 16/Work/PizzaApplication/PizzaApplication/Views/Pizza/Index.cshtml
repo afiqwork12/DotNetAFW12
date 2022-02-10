@@ -1,26 +1,54 @@
 ﻿@model IEnumerable<PizzaApplication.Models.Pizza>
-<div class="table-responsive">
-    <table class="table table-hover table-striped table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">IsVeg</th>
-            </tr>
-        </thead>
-        <tbody id="tbodyRows">
-            @foreach (var item in Model)
-            {
+<style>
+    #divCard {
+        position: relative;
+        float: left;
+        margin: 10px;
+    }
+</style>
+@*<div class="table-responsive">
+        <table class="table table-hover table-striped table-bordered">
+            <thead>
                 <tr>
-                    <th>@item.Id</th>
-                    <td>@item.Name</td>
-                    <td>@item.Price</td>
-                    <td>
-                        @Html.CheckBoxFor(m => item.IsVeg, new { @checked = @item.IsVeg })
-                    </td>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">IsVeg</th>
+                    <th scope="col">Actions</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.Id</th>
+                        <td>@item.Name</td>
+                        <td>@item.Price</td>
+                        <td>
+                            @Html.CheckBoxFor(m => item.IsVeg, new { @checked = @item.IsVeg })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Show More", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>*@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div id="divCard" class="card">
+                <img class="card-img-top" src="@Url.Content(item.Pic)" alt="Card image cap" height="200" width="200">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Details</p>
+                    @Html.ActionLink("Buy For $" + item.Price, "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </div>
+            </div>
+        </div>
+    }
 </div>

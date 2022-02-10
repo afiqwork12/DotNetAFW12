@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PizzaApplication.Models;
+using PizzaApplication.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +11,14 @@ namespace PizzaApplication.Controllers
 {
     public class PizzaController : Controller
     {
-        static List<Pizza> Pizzas = new List<Pizza>()
+        private readonly IRepo<int, Pizza> _repo;
+        public PizzaController(IRepo<int, Pizza> repo)
         {
-            new Pizza()
-            {
-                Id = 1,
-                Name ="ABC",
-                IsVeg = true,
-                Price = 12.4
-            },
-             new Pizza()
-            {
-                Id = 2,
-                Name ="BBB",
-                IsVeg = false,
-                Price = 45.7
-            }
-        };
+            _repo = repo;
+        }
         public IActionResult Index()
         {
-            var pizza = Pizzas;
+            var pizza = _repo.GetAll();
             return View(pizza);
         }
         [HttpGet]
@@ -38,22 +27,48 @@ namespace PizzaApplication.Controllers
             return View(new Pizza());
         }
         [HttpPost]
-        //public IActionResult Create(IFormCollection keyValues)
-        //{
-        //    Pizza pizza = new Pizza();
-        //    pizza.Id = Convert.ToInt32(keyValues["numID"].ToString());
-        //    pizza.Name = keyValues["txtName"].ToString();
-        //    pizza.Price = Convert.ToDouble(keyValues["numPrice"].ToString());
-        //    pizza.IsVeg = false;
-        //    Pizzas.Add(pizza);
-        //    //pizza.IsVeg = keyValues["chkIsVeg"].checked;
-        //    //return pizza.Id + " " + pizza.Name + " " + pizza.Price;
-        //    return RedirectToAction("Index");
-        //}
         public IActionResult Create(Pizza pizza)
         {
-            Pizzas.Add(pizza);
-            return RedirectToAction("Index");
+            if (_repo.Add(pizza))
+            {
+                return RedirectToAction("Index");
+            }
+            return NotFound();
+        }
+        public IActionResult Details(int id)
+        {
+            var pizza = _repo.GetT(id);
+            return View(pizza);
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var pizza = _repo.GetT(id);
+            return View(pizza);
+        }
+        [HttpPost]
+        public IActionResult Edit(Pizza pizza)
+        {
+            if (_repo.Update(pizza))
+            {
+                return RedirectToAction("Index");
+            }
+            return NotFound();
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var pizza = _repo.GetT(id);
+            return View(pizza);
+        }
+        [HttpPost]
+        public IActionResult Delete(Pizza pizza)
+        {
+            if (_repo.Delete(pizza.Id))
+            {
+                return RedirectToAction("Index");
+            }
+            return NotFound();
         }
     }
 }
