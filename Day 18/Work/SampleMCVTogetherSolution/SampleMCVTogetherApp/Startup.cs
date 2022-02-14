@@ -36,6 +36,7 @@ namespace SampleMCVTogetherApp
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddScoped<IRepo<int, Customer>, CustomerEFRepo>();
+            services.AddScoped<IRepo<string, User>, UserEFRepo>();
             services.AddDbContext<ShopContext>(
                 options =>
                 {

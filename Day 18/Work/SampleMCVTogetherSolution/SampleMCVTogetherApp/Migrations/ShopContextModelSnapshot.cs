@@ -26,7 +26,8 @@ namespace SampleMCVTogetherApp.Migrations
 
                     b.Property<int>("Age");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
@@ -35,6 +36,32 @@ namespace SampleMCVTogetherApp.Migrations
                     b.HasData(
                         new { Id = 1, Age = 23, Name = "John" }
                     );
+                });
+
+            modelBuilder.Entity("SampleMCVTogetherApp.Models.User", b =>
+                {
+                    b.Property<string>("Username")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CustomerId");
+
+                    b.Property<string>("Password");
+
+                    b.Property<string>("Role");
+
+                    b.HasKey("Username");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("SampleMCVTogetherApp.Models.User", b =>
+                {
+                    b.HasOne("SampleMCVTogetherApp.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

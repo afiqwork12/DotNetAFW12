@@ -7,7 +7,6 @@ C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\bin\Debug\netcoreapp2.1\SampleMCVTogetherApp.pdb
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\bin\Debug\netcoreapp2.1\SampleMCVTogetherApp.Views.dll
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\bin\Debug\netcoreapp2.1\SampleMCVTogetherApp.Views.pdb
-C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\SampleMCVTogetherApp.csprojAssemblyReference.cache
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\SampleMCVTogetherApp.AssemblyInfoInputs.cache
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\SampleMCVTogetherApp.AssemblyInfo.cs
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\SampleMCVTogetherApp.csproj.CoreCompileInputs.cache
@@ -38,3 +37,8 @@ C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\Razor\Views\Customers\Details.cshtml.g.cs
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\Razor\Views\Customers\Edit.cshtml.g.cs
 C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\Razor\Views\Customers\Index.cshtml.g.cs
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\SampleMCVTogetherApp.csproj.AssemblyReference.cache
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\SampleMCVTogetherApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\Razor\Views\User\Register.cshtml.g.cs
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\Razor\Views\User\Login.cshtml.g.cs
+C:\Users\Afiq\Documents\GitHub\DotNetAFW12\Day 18\Work\SampleMCVTogetherSolution\SampleMCVTogetherApp\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs

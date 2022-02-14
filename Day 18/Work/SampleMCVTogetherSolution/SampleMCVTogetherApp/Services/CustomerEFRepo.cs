@@ -1,6 +1,8 @@
-﻿using SampleMCVTogetherApp.Models;
+﻿using SampleMCVTogetherApp.Exceptions;
+using SampleMCVTogetherApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,10 +15,25 @@ namespace SampleMCVTogetherApp.Services
         {
             _context = context;
         }
-        public bool Add(Customer t)
+        public Customer Add(Customer t)
         {
-            _context.Customers.Add(t);
-            return SaveChanges();
+            try
+            {
+                _context.Customers.Add(t);
+                if (SaveChanges())
+                {
+                    return t;
+                }
+                return null;
+            }
+            catch (Exception e)
+            {
+                if ((e.InnerException as SqlException).Number == 2601)
+                {
+                    throw new UsernameDuplicateException();
+                }
+                return null;
+            }
         }
 
         public bool Delete(int k)

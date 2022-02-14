@@ -52,7 +52,7 @@ namespace SampleMCVTogetherApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_repo.Add(customer))
+                if (_repo.Add(customer) != null)
                 {
                     return RedirectToAction(nameof(Index));
                 }

@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace SampleMCVTogetherApp.Services
 {
-    public interface IRepo<K, T>
+    public interface IRepo<K, T> : IAdding<K, T>
     {
-        bool Add(T t);
         bool Update(T t);
         bool Delete(K k);
         ICollection<T> GetAll();
