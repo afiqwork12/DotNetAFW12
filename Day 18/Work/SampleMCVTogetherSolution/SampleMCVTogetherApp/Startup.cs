@@ -37,6 +37,12 @@ namespace SampleMCVTogetherApp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddScoped<IRepo<int, Customer>, CustomerEFRepo>();
             services.AddScoped<IRepo<string, User>, UserEFRepo>();
+            services.AddScoped<LoginService>();
+            services.AddHttpContextAccessor();
+            services.AddSession(opts =>
+            {
+                //opts.IdleTimeout = TimeSpan.FromMinutes(5);//optional
+            });
             services.AddDbContext<ShopContext>(
                 options =>
                 {
@@ -60,6 +66,7 @@ namespace SampleMCVTogetherApp
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

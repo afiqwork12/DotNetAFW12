@@ -9,6 +9,10 @@ namespace SampleMCVTogetherApp.Services
     public class UserEFRepo : IRepo<string, User>//IAdding<string, User>
     {
         private readonly ShopContext _context;
+        public UserEFRepo()
+        {
+
+        }
         public UserEFRepo(ShopContext context)
         {
             _context = context;
@@ -34,7 +38,7 @@ namespace SampleMCVTogetherApp.Services
             return _context.Users.ToList();
         }
 
-        public User GetT(string k)
+        public virtual User GetT(string k)
         {
             return _context.Users.SingleOrDefault(c => c.Username == k);
         }

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleMCVTogetherApp", "SampleMCVTogetherApp\SampleMCVTogetherApp.csproj", "{6AC1D199-B363-4A82-8B9E-E7D55F46D596}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleMCVTogetherApp", "SampleMCVTogetherApp\SampleMCVTogetherApp.csproj", "{6AC1D199-B363-4A82-8B9E-E7D55F46D596}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleMVCTogetherTest", "SampleMVCTogetherTest\SampleMVCTogetherTest.csproj", "{FF80F4C7-55F4-4580-88BC-8E92DE9F32CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{6AC1D199-B363-4A82-8B9E-E7D55F46D596}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AC1D199-B363-4A82-8B9E-E7D55F46D596}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AC1D199-B363-4A82-8B9E-E7D55F46D596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF80F4C7-55F4-4580-88BC-8E92DE9F32CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF80F4C7-55F4-4580-88BC-8E92DE9F32CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF80F4C7-55F4-4580-88BC-8E92DE9F32CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF80F4C7-55F4-4580-88BC-8E92DE9F32CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

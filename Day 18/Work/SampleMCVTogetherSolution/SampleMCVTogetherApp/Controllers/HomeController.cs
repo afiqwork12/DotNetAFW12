@@ -14,6 +14,15 @@ namespace SampleMCVTogetherApp.Controllers
         {
             return View();
         }
+        public IActionResult ShowProducts()
+        {
+            List<Product> products = new List<Product>()
+            {
+                new Product(){Id = 1, Name = "Choco"},
+                new Product(){Id = 2, Name = "Milk"},
+            };
+            return View(products);
+        }
 
         public IActionResult About()
         {

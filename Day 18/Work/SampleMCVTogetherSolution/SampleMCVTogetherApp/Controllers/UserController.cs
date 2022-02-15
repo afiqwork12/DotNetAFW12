@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SampleMCVTogetherApp.Models;
 using SampleMCVTogetherApp.Services;
@@ -14,11 +15,17 @@ namespace SampleMCVTogetherApp.Controllers
     {
         private readonly IRepo<string, User> _adding;
         private readonly IRepo<int, Customer> _repo;
+        private readonly LoginService _lservice;
 
-        public UserController(IRepo<string, User> adding, IRepo<int, Customer> repo)
+        public UserController(
+            IRepo<string, User> adding, 
+            IRepo<int, Customer> repo,
+            LoginService lservice
+            )
         {
             _adding = adding;
             _repo = repo;
+            _lservice = lservice;
         }
         public IActionResult Index()
         {
@@ -48,24 +55,30 @@ namespace SampleMCVTogetherApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                foreach (var item in _adding.GetAll())
+                var myuser = _lservice.LoginCheck(user);
+                if (myuser != null)
                 {
-                    if (item.Username == user.Username)
-                    {
-                        if (item.Password == user.Password)
-                        {
-                            if (TempData["un"] == null)
-                            {
-                                TempData.Add("un", user.Username);
-                            }
-                            else
-                            {
-                                TempData["un"] = user.Username;
-                            }
-                            return RedirectToAction("Index", "Customers", new { area = "" });
-                        }
-                    }
+                    HttpContext.Session.SetString("un", user.Username);
+                    return RedirectToAction("Index", "Customers", new { area = "" });
                 }
+                //foreach (var item in _adding.GetAll())
+                //{
+                //    if (item.Username == user.Username)
+                //    {
+                //        if (item.Password == user.Password)
+                //        {
+                //            if (TempData["un"] == null)
+                //            {
+                //                TempData.Add("un", user.Username);
+                //            }
+                //            else
+                //            {
+                //                TempData["un"] = user.Username;
+                //            }
+                //            return RedirectToAction("Index", "Customers", new { area = "" });
+                //        }
+                //    }
+                //}
             }
             return View(user);
         }

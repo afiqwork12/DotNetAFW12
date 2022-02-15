@@ -1,14 +1,17 @@
-﻿
-@if (TempData.Peek("un") != null)
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+@if (@HttpContextAccessor.HttpContext.Session.GetString("un") != null)
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a asp-area="" asp-controller="Customers" asp-action="Index">Hello @TempData["un"]!</a>
-        </li>
-        <li>
-            <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
-        </li>
-    </ul>
+    <form asp-controller="Customers" asp-action="Logout" method="post" class="navbar-right">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a asp-area="" asp-controller="Customers" asp-action="Index">Hello @HttpContextAccessor.HttpContext.Session.GetString("un")!</a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Logout</button>
+            </li>
+        </ul>
+    </form>
 }
 else
 {

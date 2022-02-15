@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -18,10 +19,22 @@ namespace SampleMCVTogetherApp.Controllers
         {
             _repo = repo;
         }
-
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction(nameof(Index));
+        }
         // GET: Customers
         public IActionResult Index()
         {
+            try
+            {
+                ViewBag.Username = HttpContext.Session.GetString("un");
+            }
+            catch (Exception)
+            {
+
+            }
             return View(_repo.GetAll());
         }
 
