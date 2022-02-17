@@ -8,9 +8,9 @@ namespace FirstAPI.Services
     public interface IRepo<K, T> 
     {
         T Add(T t);
-        bool Update(T t);
-        bool Delete(K k);
-        ICollection<T> GetAll();
+        T Update(T t);
+        T Delete(K k);
+        IEnumerable<T> GetAll();
         T GetT(K k);
     }
 }

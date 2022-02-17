@@ -21,47 +21,63 @@ namespace FirstAPI.Controllers
         }
         // GET: api/<EmployeeController>
         [HttpGet]
-        public IEnumerable<Employee> Get()
+        public ActionResult<IEnumerable<Employee>> Get()
         {
-            return _repo.GetAll();
+            var employees = _repo.GetAll();
+            if (employees != null)
+            {
+                return Ok(employees);
+            }
+            return BadRequest("No employees found");
         }
 
         // GET api/<EmployeeController>/5
         [HttpGet]
         [Route("SingleEmployee")]
-        public Employee Get(int id)
+        public ActionResult<Employee> Get(int id)
         {
-            return _repo.GetT(id);
+            var employee = _repo.GetT(id);
+            if (employee != null)
+            {
+                return Ok(employee);
+            }
+            return NotFound();
         }
 
         // POST api/<EmployeeController>
         [HttpPost]
-        public Employee Post(Employee employee)
+        public ActionResult<Employee> Post(Employee employee)
         {
             var myemployee = _repo.Add(employee);
             if (myemployee != null)
             {
-                return employee;
+                return Created("Created", employee);
             }
-            return null;
+            return BadRequest("Unable to create");
         }
 
         // PUT api/<EmployeeController>/5
         [HttpPut]
-        public Employee Put(int id, Employee employee)
+        public ActionResult<Employee> Put(int id, Employee employee)
         {
-            if (_repo.Update(employee))
+            employee = _repo.Update(employee);
+            if (employee != null)
             {
-                return employee;
+                return Created("Updated", employee);
             }
-            return null;
+            return NotFound();
         }
 
         // DELETE api/<EmployeeController>/5
         [HttpDelete]
-        public bool Delete(int id)
+        public ActionResult<Employee> Delete(int id)
         {
-            return _repo.Delete(id);
+            var employee = _repo.Delete(id);
+            if (employee != null)
+            {
+                return Ok(employee);
+            }
+            return NotFound();
         }
     }
 }

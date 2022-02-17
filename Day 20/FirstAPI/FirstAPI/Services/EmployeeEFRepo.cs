@@ -24,13 +24,21 @@ namespace FirstAPI.Services
             return null;
         }
 
-        public bool Delete(int k)
+        public Employee Delete(int k)
         {
-            _context.Employees.Remove(GetT(k));
-            return SaveChanges();
+            var employee = GetT(k);
+            if (employee != null)
+            {
+                _context.Employees.Remove(employee);
+                if (SaveChanges())
+                {
+                    return employee;
+                }
+            }
+            return null;
         }
 
-        public ICollection<Employee> GetAll()
+        public IEnumerable<Employee> GetAll()
         {
             return _context.Employees.ToList();
         }
@@ -40,10 +48,14 @@ namespace FirstAPI.Services
             return _context.Employees.SingleOrDefault(e => e.Id == k);
         }
 
-        public bool Update(Employee t)
+        public Employee Update(Employee t)
         {
             _context.Employees.Update(t);
-            return SaveChanges();
+            if (SaveChanges())
+            {
+                return t;
+            }
+            return null;
         }
         private bool SaveChanges()
         {
