@@ -26,6 +26,8 @@ namespace EmployeeServiceApp
         {
             services.AddControllersWithViews();
             services.AddScoped<IRepo<int, Employee>, EmployeeRepo>();
+            services.AddScoped<LoginService>();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,11 +47,13 @@ namespace EmployeeServiceApp
 
             app.UseAuthorization();
 
+            app.UseSession();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Employee}/{action=Index}/{id?}");
+                    pattern: "{controller=User}/{action=Register}/{id?}");
             });
         }
     }

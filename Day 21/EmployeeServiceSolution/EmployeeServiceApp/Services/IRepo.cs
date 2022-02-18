@@ -12,5 +12,6 @@ namespace EmployeeServiceApp.Services
         Task<T> Delete(K k);
         Task<IEnumerable<T>> GetAll();
         Task<T> GetT(K k);
+        void GetToken(string token);
     }
 }

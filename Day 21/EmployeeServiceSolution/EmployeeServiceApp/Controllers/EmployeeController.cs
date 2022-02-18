@@ -19,8 +19,14 @@ namespace EmployeeServiceApp.Controllers
         // GET: EmployeeController
         public async Task<ActionResult> Index()
         {
-            var employees = await _repo.GetAll();
-            return View(employees);
+            if (HttpContext.Session.GetString("Token") != null)
+            {
+                string token = HttpContext.Session.GetString("Token");
+                _repo.GetToken(token);
+                var employees = await _repo.GetAll();
+                return View(employees);
+            }
+            return View();
         }
 
         // GET: EmployeeController/Details/5
