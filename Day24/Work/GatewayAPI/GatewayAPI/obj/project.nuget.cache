@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "L0sX9gyGKI2cLYtWLS+Dmlo7LSCW1ZjjlaYwCg5rZQQu8yo/0sS2LzxT4aIHG+cQxri7bu4JhQVE2PSwgZcItw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Afiq\\Documents\\GitHub\\DotNetAFW12\\Day24\\Work\\GatewayAPI\\GatewayAPI\\GatewayAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Afiq\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.22\\microsoft.aspnetcore.authentication.jwtbearer.3.1.22.nupkg.sha512",
+    "C:\\Users\\Afiq\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.5.0\\microsoft.identitymodel.jsonwebtokens.5.5.0.nupkg.sha512",
+    "C:\\Users\\Afiq\\.nuget\\packages\\microsoft.identitymodel.logging\\5.5.0\\microsoft.identitymodel.logging.5.5.0.nupkg.sha512",
+    "C:\\Users\\Afiq\\.nuget\\packages\\microsoft.identitymodel.protocols\\5.5.0\\microsoft.identitymodel.protocols.5.5.0.nupkg.sha512",
+    "C:\\Users\\Afiq\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\5.5.0\\microsoft.identitymodel.protocols.openidconnect.5.5.0.nupkg.sha512",
+    "C:\\Users\\Afiq\\.nuget\\packages\\microsoft.identitymodel.tokens\\5.5.0\\microsoft.identitymodel.tokens.5.5.0.nupkg.sha512",
+    "C:\\Users\\Afiq\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Afiq\\.nuget\\packages\\system.identitymodel.tokens.jwt\\5.5.0\\system.identitymodel.tokens.jwt.5.5.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
